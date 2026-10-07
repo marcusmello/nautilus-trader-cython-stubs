@@ -5,6 +5,7 @@ from nautilus_trader.model.enums import AssetClass as AssetClass
 from nautilus_trader.model.enums import InstrumentClass as InstrumentClass
 from nautilus_trader.model.enums import PositionSide
 from nautilus_trader.model.enums import PriceType as PriceType
+from nautilus_trader.core.nautilus_pyo3 import BlackScholesGreeksResult
 from nautilus_trader.model.greeks_data import GreeksData as GreeksData
 from nautilus_trader.model.greeks_data import PortfolioGreeks as PortfolioGreeks
 from nautilus_trader.cache.base import CacheFacade
@@ -15,15 +16,15 @@ from nautilus_trader.model.identifiers import StrategyId
 from nautilus_trader.model.identifiers import Venue
 from nautilus_trader.model.position import Position
 
-def black_scholes_greeks(*args: Any, **kwargs: Any) -> GreeksData:
+def black_scholes_greeks(*args: Any, **kwargs: Any) -> BlackScholesGreeksResult:
     """Computes Black-Scholes greeks using the fast `compute_greeks` implementation."""
     ...
 
-def imply_vol_and_greeks(*args: Any, **kwargs: Any) -> GreeksData:
+def imply_vol_and_greeks(*args: Any, **kwargs: Any) -> BlackScholesGreeksResult:
     """Computes implied volatility and greeks using the fast implementations."""
     ...
 
-def refine_vol_and_greeks(*args: Any, **kwargs: Any) -> GreeksData:
+def refine_vol_and_greeks(*args: Any, **kwargs: Any) -> BlackScholesGreeksResult:
     """Refines implied volatility using an initial guess and computes greeks."""
     ...
 

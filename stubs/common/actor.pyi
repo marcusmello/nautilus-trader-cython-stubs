@@ -29,6 +29,7 @@ from nautilus_trader.model.data import IndexPriceUpdate
 from nautilus_trader.model.data import InstrumentClose
 from nautilus_trader.model.data import InstrumentStatus
 from nautilus_trader.model.data import MarkPriceUpdate
+from nautilus_trader.model.data import OptionGreeks
 from nautilus_trader.model.data import OrderBookDeltas
 from nautilus_trader.model.data import OrderBookDepth10
 from nautilus_trader.model.data import QuoteTick
@@ -36,7 +37,6 @@ from nautilus_trader.model.data import TradeTick
 from nautilus_trader.model.events.order import OrderCanceled
 from nautilus_trader.model.events.order import OrderFilled
 from nautilus_trader.model.greeks import GreeksCalculator
-from nautilus_trader.model.greeks import GreeksData
 from nautilus_trader.model.identifiers import ClientId
 from nautilus_trader.model.identifiers import InstrumentId
 from nautilus_trader.model.identifiers import Venue
@@ -385,7 +385,7 @@ class Actor(Component):
 
         """
         ...
-    def on_option_greeks(self, option_greeks: GreeksData) -> None:
+    def on_option_greeks(self, option_greeks: OptionGreeks) -> None:
         """
         Actions to be performed when running and receives option greeks.
 
@@ -2723,7 +2723,7 @@ class Actor(Component):
 
         """
         ...
-    def handle_option_greeks(self, option_greeks: GreeksData) -> None:
+    def handle_option_greeks(self, option_greeks: OptionGreeks) -> None:
         """
         Handle the given option greeks.
 

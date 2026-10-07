@@ -5,7 +5,7 @@ from nautilus_trader.cache.cache import Cache
 from nautilus_trader.common.component import Clock, Component, MessageBus
 from nautilus_trader.core.data import Data
 from nautilus_trader.core.uuid import UUID4
-from nautilus_trader.data.messages import RequestBars, RequestData, RequestFundingRates, RequestInstrument, RequestInstruments, RequestOrderBookDeltas, RequestOrderBookSnapshot, RequestQuoteTicks, RequestTradeTicks, SubscribeBars, SubscribeData, SubscribeFundingRates, SubscribeIndexPrices, SubscribeInstrument, SubscribeInstrumentClose, SubscribeInstrumentStatus, SubscribeInstruments, SubscribeMarkPrices, SubscribeOptionGreeks, SubscribeOrderBook, SubscribeQuoteTicks, SubscribeTradeTicks, UnsubscribeBars, UnsubscribeData, UnsubscribeFundingRates, UnsubscribeIndexPrices, UnsubscribeInstrument, UnsubscribeInstrumentClose, UnsubscribeInstrumentStatus, UnsubscribeInstruments, UnsubscribeMarkPrices, UnsubscribeOptionGreeks, UnsubscribeOrderBook, UnsubscribeQuoteTicks, UnsubscribeTradeTicks
+from nautilus_trader.data.messages import RequestBars, RequestData, RequestForwardPrices, RequestFundingRates, RequestInstrument, RequestInstruments, RequestOrderBookDeltas, RequestOrderBookSnapshot, RequestQuoteTicks, RequestTradeTicks, SubscribeBars, SubscribeData, SubscribeFundingRates, SubscribeIndexPrices, SubscribeInstrument, SubscribeInstrumentClose, SubscribeInstrumentStatus, SubscribeInstruments, SubscribeMarkPrices, SubscribeOptionGreeks, SubscribeOrderBook, SubscribeQuoteTicks, SubscribeTradeTicks, UnsubscribeBars, UnsubscribeData, UnsubscribeFundingRates, UnsubscribeIndexPrices, UnsubscribeInstrument, UnsubscribeInstrumentClose, UnsubscribeInstrumentStatus, UnsubscribeInstruments, UnsubscribeMarkPrices, UnsubscribeOptionGreeks, UnsubscribeOrderBook, UnsubscribeQuoteTicks, UnsubscribeTradeTicks
 from nautilus_trader.model.data import Bar, BarType, DataType
 from nautilus_trader.model.identifiers import ClientId, InstrumentId, Venue
 from nautilus_trader.model.instruments.base import Instrument
@@ -748,6 +748,18 @@ class MarketDataClient(DataClient):
         """
         ...
 
+    def request_forward_prices(self, request: RequestForwardPrices) -> None:
+        """
+        Request forward prices for option chain ATM determination.
+
+        Parameters
+        ----------
+        request : RequestForwardPrices
+            The message for the data request.
+
+        """
+        ...
+
     def _handle_data_py(self, data: Data) -> None: ...
 
     def _handle_instrument_py(
@@ -833,6 +845,14 @@ class MarketDataClient(DataClient):
         correlation_id: UUID4,
         start: datetime,
         end: datetime,
+        params: dict[str, object] = None,
+    ) -> None:
+        ...
+
+    def _handle_forward_prices_py(
+        self,
+        forward_prices: list[object],
+        correlation_id: UUID4,
         params: dict[str, object] = None,
     ) -> None:
         ...
@@ -933,6 +953,14 @@ class MarketDataClient(DataClient):
         correlation_id: UUID4,
         start: datetime,
         end: datetime,
+        params: dict[str, object],
+    ) -> None:
+        ...
+
+    def _handle_forward_prices(
+        self,
+        forward_prices: list[object],
+        correlation_id: UUID4,
         params: dict[str, object],
     ) -> None:
         ...
