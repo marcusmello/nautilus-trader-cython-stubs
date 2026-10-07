@@ -2,7 +2,7 @@ import pytz
 
 from nautilus_trader.backtest.config import FXRolloverInterestConfig
 from nautilus_trader.backtest.config import SimulationModuleConfig
-from nautilus_trader.backtest.exchange import SimulatedExchange
+from nautilus_trader.backtest.engine import SimulatedExchange
 from nautilus_trader.common.actor import Actor
 from nautilus_trader.common.component import Logger
 from nautilus_trader.core.data import Data

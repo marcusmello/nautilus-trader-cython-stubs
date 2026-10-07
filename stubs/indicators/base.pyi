@@ -26,6 +26,10 @@ class Indicator:
     def handle_bar(self, bar: Bar) -> None: 
         """Abstract method (implement in subclass)."""
         ...
+    @property
+    def initialized(self) -> bool:
+        """Whether the indicator has warm-up data enough to produce values."""
+        ...
     def _set_has_inputs(self, setting: bool):
         ...
     def _set_initialized(self, setting: bool):

@@ -27,11 +27,11 @@ from nautilus_trader.accounting.accounts.base import Account
 from nautilus_trader.accounting.margin_models import MarginModel
 from nautilus_trader.backtest.models import FeeModel, FillModel, LatencyModel
 from nautilus_trader.backtest.modules import SimulationModule
-from nautilus_trader.backtest.results import BacktestResult
+from nautilus_trader.backtest.results import BacktestResult as BacktestResult
 from nautilus_trader.cache.base import CacheFacade
 from nautilus_trader.common.actor import Actor
 from nautilus_trader.common.component import Logger
-from nautilus_trader.config import BacktestEngineConfig
+from nautilus_trader.config import BacktestEngineConfig as BacktestEngineConfig
 from nautilus_trader.core.data import Data
 from nautilus_trader.core.rust.model import AccountType, BookType, OmsType
 from nautilus_trader.core.uuid import UUID4

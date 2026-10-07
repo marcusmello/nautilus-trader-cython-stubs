@@ -21,6 +21,7 @@ from nautilus_trader.model.identifiers import PositionId
 from nautilus_trader.model.identifiers import StrategyId
 from nautilus_trader.model.identifiers import Symbol
 from nautilus_trader.model.identifiers import TradeId
+from nautilus_trader.model.identifiers import TraderId
 from nautilus_trader.model.identifiers import Venue
 from nautilus_trader.model.identifiers import VenueOrderId
 from nautilus_trader.model.objects import Currency
@@ -48,7 +49,7 @@ class Order:
     This class should not be used directly, but through a concrete subclass.
     """
 
-    trader_id: StrategyId
+    trader_id: TraderId
     strategy_id: StrategyId
     instrument_id: InstrumentId
     client_order_id: ClientOrderId

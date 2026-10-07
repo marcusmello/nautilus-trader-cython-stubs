@@ -1,3 +1,4 @@
+from decimal import Decimal
 from typing import Any
 
 from nautilus_trader.accounting.accounts.base import Account
@@ -58,7 +59,7 @@ class PortfolioFacade:
     def net_exposure(self, instrument_id: InstrumentId, price: Price | None = None, account_id: AccountId | None = None, target_currency: Currency | None = None) -> Money:
         """Abstract method (implement in subclass)."""
         ...
-    def net_position(self, instrument_id: InstrumentId, account_id: AccountId | None = None) -> object:
+    def net_position(self, instrument_id: InstrumentId, account_id: AccountId | None = None) -> Decimal:
         """Abstract method (implement in subclass)."""
         ...
     def is_net_long(self, instrument_id: InstrumentId, account_id: AccountId | None = None) -> bool:

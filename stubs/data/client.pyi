@@ -9,7 +9,7 @@ from nautilus_trader.data.messages import RequestBars, RequestData, RequestForwa
 from nautilus_trader.model.data import Bar, BarType, DataType
 from nautilus_trader.model.identifiers import ClientId, InstrumentId, Venue
 from nautilus_trader.model.instruments.base import Instrument
-from nautilus_trader.model.data import ForwardPrice, FundingRateUpdate, OrderBookDeltas, OrderBookDepth10, QuoteTick, TradeTick
+from nautilus_trader.model.data import FundingRateUpdate, OrderBookDeltas, OrderBookDepth10, QuoteTick, TradeTick
 
 
 class DataClient(Component):
@@ -851,7 +851,7 @@ class MarketDataClient(DataClient):
 
     def _handle_forward_prices_py(
         self,
-        forward_prices: list[ForwardPrice],
+        forward_prices: list[object],
         correlation_id: UUID4,
         params: dict[str, object] = None,
     ) -> None:
@@ -959,7 +959,7 @@ class MarketDataClient(DataClient):
 
     def _handle_forward_prices(
         self,
-        forward_prices: list[ForwardPrice],
+        forward_prices: list[object],
         correlation_id: UUID4,
         params: dict[str, object],
     ) -> None:
