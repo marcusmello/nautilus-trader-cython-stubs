@@ -19,7 +19,7 @@ from nautilus_trader.core.uuid import UUID4
 from nautilus_trader.core.nautilus_pyo3 import StrikeRange
 from nautilus_trader.core.nautilus_pyo3 import OptionSeriesId
 from nautilus_trader.data.messages import DataResponse
-from nautilus_trader.indicators.base.indicator import Indicator
+from nautilus_trader.indicators.base import Indicator
 from nautilus_trader.model.book import OrderBook
 from nautilus_trader.model.data import Bar
 from nautilus_trader.model.data import BarType
@@ -36,13 +36,12 @@ from nautilus_trader.model.data import TradeTick
 from nautilus_trader.model.events.order import OrderCanceled
 from nautilus_trader.model.events.order import OrderFilled
 from nautilus_trader.model.greeks import GreeksCalculator
-from nautilus_trader.model.greeks import OptionGreeks
+from nautilus_trader.model.greeks import GreeksData
 from nautilus_trader.model.identifiers import ClientId
 from nautilus_trader.model.identifiers import InstrumentId
 from nautilus_trader.model.identifiers import Venue
 from nautilus_trader.model.instruments.base import Instrument
 from nautilus_trader.model.instruments.synthetic import SyntheticInstrument
-from nautilus_trader.model.options import OptionChainSlice
 from nautilus_trader.portfolio.base import PortfolioFacade
 
 class Actor(Component):
@@ -386,7 +385,7 @@ class Actor(Component):
 
         """
         ...
-    def on_option_greeks(self, option_greeks: OptionGreeks) -> None:
+    def on_option_greeks(self, option_greeks: GreeksData) -> None:
         """
         Actions to be performed when running and receives option greeks.
 
@@ -401,7 +400,7 @@ class Actor(Component):
 
         """
         ...
-    def on_option_chain(self, option_chain_slice: OptionChainSlice) -> None:
+    def on_option_chain(self, option_chain_slice: object) -> None:
         """
         Actions to be performed when running and receives an option chain slice.
 
@@ -2724,7 +2723,7 @@ class Actor(Component):
 
         """
         ...
-    def handle_option_greeks(self, option_greeks: OptionGreeks) -> None:
+    def handle_option_greeks(self, option_greeks: GreeksData) -> None:
         """
         Handle the given option greeks.
 
@@ -2741,7 +2740,7 @@ class Actor(Component):
 
         """
         ...
-    def handle_option_chain(self, option_chain_slice: OptionChainSlice) -> None:
+    def handle_option_chain(self, option_chain_slice: object) -> None:
         """
         Handle the given option chain slice.
 

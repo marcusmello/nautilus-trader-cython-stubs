@@ -48,7 +48,7 @@ class Order:
     This class should not be used directly, but through a concrete subclass.
     """
 
-    trader_id: StrategyId
+    trader_id: TraderId
     strategy_id: StrategyId
     instrument_id: InstrumentId
     client_order_id: ClientOrderId

@@ -22,6 +22,10 @@ from nautilus_trader.model.identifiers import TradeId
 from nautilus_trader.model.objects import Price
 from nautilus_trader.model.objects import Quantity
 
+class BarIntervalType(Enum):
+    LEFT_OPEN = 0
+    RIGHT_OPEN = 1
+
 class BarAggregation(Enum): # skip-validate
     TICK = 1
     TICK_IMBALANCE = 2
