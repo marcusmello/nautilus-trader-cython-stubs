@@ -4,8 +4,8 @@ from nautilus_trader.model.enums import OmsType
 from nautilus_trader.model.enums import OrderSide
 from nautilus_trader.model.enums import PositionSide
 from nautilus_trader.model.enums import TimeInForce
-from nautilus_trader.trading.config import ImportableStrategyConfig
-from nautilus_trader.trading.config import StrategyConfig
+from nautilus_trader.trading.config import ImportableStrategyConfig as ImportableStrategyConfig
+from nautilus_trader.trading.config import StrategyConfig as StrategyConfig
 from nautilus_trader.cache.base import CacheFacade
 from nautilus_trader.cache.cache import Cache
 from nautilus_trader.common.actor import Actor

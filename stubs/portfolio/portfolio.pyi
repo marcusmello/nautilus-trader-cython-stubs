@@ -460,7 +460,7 @@ class Portfolio(PortfolioFacade):
 
         """
         ...
-    def net_position(self, instrument_id: InstrumentId, account_id: AccountId | None = None) -> object:
+    def net_position(self, instrument_id: InstrumentId, account_id: AccountId | None = None) -> Decimal:
         """
         Return the net position for the given instrument ID.
         If account_id is provided, returns the net position for that account.
