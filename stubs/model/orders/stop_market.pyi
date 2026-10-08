@@ -132,6 +132,17 @@ class StopMarketOrder(Order):
         tags: list[str] | None = None,
     ) -> None: ...
     @property
+    def trigger_price(self) -> Price:
+        """
+        Return the trigger (STOP) price for the order.
+
+        Returns
+        -------
+        Price
+
+        """
+        ...
+    @property
     def expire_time(self) -> dt.datetime | None:
         """
         Return the expire time for the order (UTC).

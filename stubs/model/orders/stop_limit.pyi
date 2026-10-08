@@ -140,6 +140,17 @@ class StopLimitOrder(Order):
     ) -> None:
         ...
     @property
+    def trigger_price(self) -> Price:
+        """
+        Return the trigger (STOP) price for the order.
+
+        Returns
+        -------
+        Price
+
+        """
+        ...
+    @property
     def expire_time(self) -> datetime | None:
         """
         Return the expire time for the order (UTC).
